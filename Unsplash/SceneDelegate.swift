@@ -7,10 +7,17 @@
 
 import UIKit
 import SwiftUI
+import DITranquillity
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+
+    private lazy var container = AppDI.makeContainer(
+        accessKey: ProcessInfo.processInfo.environment["UNSPLASH_ACCESS_KEY"]
+            ?? Bundle.main.object(forInfoDictionaryKey: "UnsplashAccessKey") as? String
+            ?? ""
+    )
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -19,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let view = MainContainer()
+        let view: MainContainer = container.resolve()
         
         window.rootViewController = UIHostingController(rootView: view)
 

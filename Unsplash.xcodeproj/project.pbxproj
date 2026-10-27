@@ -28,6 +28,9 @@
 		C209DFBC30680CA900FB5E54 /* ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C209DF3630680B6B00FB5E54 /* ui.framework */; };
 		C209DFC03068102D00FB5E54 /* ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C209DF3630680B6B00FB5E54 /* ui.framework */; };
 		C209DFC13068102D00FB5E54 /* ui.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C209DF3630680B6B00FB5E54 /* ui.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C209E050307254DF00FB5E54 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C209E04F307254DF00FB5E54 /* Kingfisher */; };
+		D10000000000000000000001 /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = D10000000000000000000003 /* DITranquillity */; };
+		D10000000000000000000002 /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = D10000000000000000000003 /* DITranquillity */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,11 +260,13 @@
 		C209DF3330680B6B00FB5E54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				C209E050307254DF00FB5E54 /* Kingfisher in Frameworks */,
 			);
 		};
 		C209DF4530680B9500FB5E54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				D10000000000000000000001 /* DITranquillity in Frameworks */,
 				C209DFAA30680C9000FB5E54 /* ui.framework in Frameworks */,
 				C209DFA530680C8A00FB5E54 /* Domain.framework in Frameworks */,
 			);
@@ -288,6 +293,7 @@
 		C2378CDD305D713E00352991 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				D10000000000000000000002 /* DITranquillity in Frameworks */,
 				C209DF5030680B9500FB5E54 /* catalog.framework in Frameworks */,
 				C209DF2C30680B3A00FB5E54 /* Data.framework in Frameworks */,
 				C209DF7430680BBB00FB5E54 /* info.framework in Frameworks */,
@@ -458,6 +464,9 @@
 				C209DF3730680B6B00FB5E54 /* ui */,
 			);
 			name = ui;
+			packageProductDependencies = (
+				C209E04F307254DF00FB5E54 /* Kingfisher */,
+			);
 			productName = ui;
 			productReference = C209DF3630680B6B00FB5E54 /* ui.framework */;
 			productType = "com.apple.product-type.framework";
@@ -481,6 +490,9 @@
 				C209DFFF306C0F4600FB5E54 /* catalog */,
 			);
 			name = catalog;
+			packageProductDependencies = (
+				D10000000000000000000003 /* DITranquillity */,
+			);
 			productName = catalog;
 			productReference = C209DF4830680B9500FB5E54 /* catalog.framework */;
 			productType = "com.apple.product-type.framework";
@@ -574,6 +586,9 @@
 				C2378CE2305D713E00352991 /* Unsplash */,
 			);
 			name = Unsplash;
+			packageProductDependencies = (
+				D10000000000000000000003 /* DITranquillity */,
+			);
 			productName = Unsplash;
 			productReference = C2378CE0305D713E00352991 /* Unsplash.app */;
 			productType = "com.apple.product-type.application";
@@ -632,12 +647,15 @@
 				TargetAttributes = {
 					C209DF1030680B1F00FB5E54 = {
 						CreatedOnToolsVersion = 27.0;
+						LastSwiftMigration = 2700;
 					};
 					C209DF2330680B3A00FB5E54 = {
 						CreatedOnToolsVersion = 27.0;
+						LastSwiftMigration = 2700;
 					};
 					C209DF3530680B6B00FB5E54 = {
 						CreatedOnToolsVersion = 27.0;
+						LastSwiftMigration = 2700;
 					};
 					C209DF4730680B9500FB5E54 = {
 						CreatedOnToolsVersion = 27.0;
@@ -674,6 +692,10 @@
 			);
 			mainGroup = C2378CD7305D713E00352991;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D10000000000000000000004 /* XCRemoteSwiftPackageReference "DITranquillity" */,
+				C209E04E307254DF00FB5E54 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C2378CE1305D713E00352991 /* Products */;
 			projectDirPath = "";
@@ -887,8 +909,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GJ9D83UM86;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -914,6 +938,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -926,8 +951,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GJ9D83UM86;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -965,8 +992,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GJ9D83UM86;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -992,6 +1021,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1004,8 +1034,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GJ9D83UM86;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1043,8 +1075,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GJ9D83UM86;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1070,6 +1104,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1082,8 +1117,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = GJ9D83UM86;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1443,8 +1480,10 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UnsplashAccessKey = "$(UNSPLASH_ACCESS_KEY)";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1477,8 +1516,10 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UnsplashAccessKey = "$(UNSPLASH_ACCESS_KEY)";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1797,6 +1838,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C209E04E307254DF00FB5E54 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.13.0;
+			};
+		};
+		D10000000000000000000004 /* XCRemoteSwiftPackageReference "DITranquillity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivlevAstef/DITranquillity.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C209E04F307254DF00FB5E54 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C209E04E307254DF00FB5E54 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		D10000000000000000000003 /* DITranquillity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D10000000000000000000004 /* XCRemoteSwiftPackageReference "DITranquillity" */;
+			productName = DITranquillity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C2378CD8305D713E00352991 /* Project object */;
 	validationLevel = 1;
