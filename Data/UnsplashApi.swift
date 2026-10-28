@@ -41,8 +41,14 @@ public nonisolated final class UnsplashApi: PhotoApi {
             .appending(queryItems: items)
         var request = URLRequest(url: destinationUrl)
         request.setValue("Client-ID \(clientId)", forHTTPHeaderField: Constants.authorizationHeader)
-        return try await apiClient.get([PhotoDtoModel].self, from: request).map {
-            PhotoModel(id: $0.id, title: $0.description ?? "", authorName: $0.user.name, imageUrl: $0.urls.regular, width: $0.width, height: $0.height)
+        let requestModels = try await apiClient.get([PhotoDtoModel].self, from: request)
+        return requestModels.map {
+            PhotoModel(id: $0.id,
+                       title: $0.description ?? "",
+                       authorName: $0.user.name,
+                       imageUrl: $0.urls.regular,
+                       width: $0.width,
+                       height: $0.height)
         }
     }
 }

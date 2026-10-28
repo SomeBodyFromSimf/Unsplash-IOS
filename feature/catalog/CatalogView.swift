@@ -8,6 +8,7 @@ import SwiftUI
 import ui
 
 public struct CatalogView: View {
+    @State private var favoritesReloadID = 0
     @State private var model: CatalogModel
     @State private var reloadID = 0
 
@@ -20,6 +21,33 @@ public struct CatalogView: View {
             content
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .navigationTitle(Text(.mainText))
+        }
+        .safeAreaInset(edge: .top) {
+            if model.favoritesObservationError != nil {
+                VStack(spacing: 8) {
+                    Text(.favoritesObservationError)
+                        .multilineTextAlignment(.center)
+                    Button {
+                        favoritesReloadID += 1
+                    } label: {
+                        Text(.favoritesRetry)
+                    }
+                    .buttonStyle(.bordered)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(.regularMaterial)
+            }
+        }
+        .alert(Text(.favoritesWriteErrorTitle), isPresented: $model.showsFavoriteWriteError) {
+            Button(role: .cancel) {} label: {
+                Text(.favoritesDismiss)
+            }
+        } message: {
+            Text(.favoritesWriteErrorDescription)
+        }
+        .task(id: favoritesReloadID) {
+            await model.collectFavorites()
         }
         .task(id: reloadID) {
             await model.loadInitialPageIfNeeded()
@@ -50,8 +78,9 @@ public struct CatalogView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
-        case .success(let photos):
+        case .success:
             ScrollView {
+                let photos = model.uiPhotos
                 LazyVStack(spacing: 16) {
                     if photos.isEmpty {
                         ContentUnavailableView {
@@ -66,8 +95,7 @@ public struct CatalogView: View {
                     }
 
                     ForEach(photos) { photo in
-                        PhotoCardView(uiModel: photo, onFavoriteTap: {})
-                            .disabled(true)
+                        PhotoCardView(uiModel: photo, onFavoriteTap: { model.toggleFavorite(id: photo.id, add: !photo.isFavorite) })
                     }
 
                     paginationFooter

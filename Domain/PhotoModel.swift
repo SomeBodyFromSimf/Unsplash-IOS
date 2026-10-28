@@ -12,7 +12,7 @@ public nonisolated struct PhotoModel: Identifiable, Sendable {
     public let imageUrl: String
     public let width: Int
     public let height: Int
-
+    
     public init(id: String, title: String, authorName: String, imageUrl: String, width: Int, height: Int) {
         self.id = id
         self.title = title

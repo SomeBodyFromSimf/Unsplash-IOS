@@ -20,6 +20,8 @@ public struct PhotoCardView: View {
 
     public var body: some View {
         KFImage(uiModel.imageUrl)
+            .targetCache(PhotoImageCache.shared)
+            .waitForCache()
             .resizable()
             .aspectRatio(uiModel.imageAspectRatio, contentMode: .fit)
             .overlay(alignment: .topTrailing) {

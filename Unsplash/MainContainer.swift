@@ -14,15 +14,17 @@ struct MainContainer: View {
     @State private var selectionTabState: SelectionTabState = .catalog
     
     private let catalogView: CatalogView
+    private let favoriteView: FavoriteView
 
-    init(catalogView: CatalogView) {
+    init(catalogView: CatalogView, favoriteView: FavoriteView) {
         self.catalogView = catalogView
+        self.favoriteView = favoriteView
     }
     
     var body: some View {
         TabView(selection: $selectionTabState) {
             Tab(.tabFavorites, systemImage: "heart", value: .favorite) {
-                FavoriteView()
+                favoriteView
             }
             Tab(.tabCatalog, systemImage: "photo.on.rectangle", value: .catalog) {
                 catalogView

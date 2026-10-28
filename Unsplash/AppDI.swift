@@ -1,7 +1,9 @@
 import Data
+import SwiftData
 import DITranquillity
 import Domain
 import catalog
+import favorites
 
 @MainActor
 enum AppDI {
@@ -20,10 +22,24 @@ enum AppDI {
         }
         .as(PhotoApi.self)
         .lifetime(.single)
+        container.register {
+            let container: ModelContainer
+            do {
+                container = try ModelContainer(for: SwiftDataPhotoModel.self)
+            } catch {
+                fatalError("Не удалось создать SwiftData container: \(error)")
+            }
+            let context = ModelContext(container)
+            
+            return SwiftDataItemsStorage(context: context)
+        }
+        .as(ItemsStorage.self)
+        .lifetime(.single)
 
         container.append(part: CatalogDI.self)
-        container.register(main: { (catalogView: CatalogView) in
-            MainContainer(catalogView: catalogView)
+        container.append(part: FavoriteDI.self)
+        container.register(main: { (catalogView: CatalogView, favoriteView: FavoriteView) in
+            MainContainer(catalogView: catalogView, favoriteView: favoriteView)
         })
 
         #if DEBUG

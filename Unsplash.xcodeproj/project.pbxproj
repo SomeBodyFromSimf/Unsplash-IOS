@@ -29,6 +29,7 @@
 		C209DFC03068102D00FB5E54 /* ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C209DF3630680B6B00FB5E54 /* ui.framework */; };
 		C209DFC13068102D00FB5E54 /* ui.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C209DF3630680B6B00FB5E54 /* ui.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C209E050307254DF00FB5E54 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C209E04F307254DF00FB5E54 /* Kingfisher */; };
+		C27B1CB6309208A300FFDAAA /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = C27B1CB5309208A300FFDAAA /* DITranquillity */; };
 		D10000000000000000000001 /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = D10000000000000000000003 /* DITranquillity */; };
 		D10000000000000000000002 /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = D10000000000000000000003 /* DITranquillity */; };
 /* End PBXBuildFile section */
@@ -274,6 +275,7 @@
 		C209DF5730680BA500FB5E54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				C27B1CB6309208A300FFDAAA /* DITranquillity in Frameworks */,
 				C209DFB330680C9900FB5E54 /* ui.framework in Frameworks */,
 				C209DFAE30680C9600FB5E54 /* Domain.framework in Frameworks */,
 			);
@@ -516,6 +518,9 @@
 				C209E004306C0F6300FB5E54 /* favorites */,
 			);
 			name = favorites;
+			packageProductDependencies = (
+				C27B1CB5309208A300FFDAAA /* DITranquillity */,
+			);
 			productName = favorites;
 			productReference = C209DF5A30680BA500FB5E54 /* favorites.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1863,6 +1868,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C209E04E307254DF00FB5E54 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		C27B1CB5309208A300FFDAAA /* DITranquillity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D10000000000000000000004 /* XCRemoteSwiftPackageReference "DITranquillity" */;
+			productName = DITranquillity;
 		};
 		D10000000000000000000003 /* DITranquillity */ = {
 			isa = XCSwiftPackageProductDependency;
